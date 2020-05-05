@@ -176,19 +176,20 @@ function direction(event){
     }
 }
 
-document.addEventListener('swiped-left', function() {
+
+cvs.addEventListener('swiped-left', function() {
     d = "LEFT";
 });
 
-document.addEventListener('swiped-right', function() {
+cvs.addEventListener('swiped-right', function() {
     d = "RIGHT";
 });
 
-document.addEventListener('swiped-up', function() {
+cvs.addEventListener('swiped-up', function() {
     d = "UP";
 });
 
-document.addEventListener('swiped-down', function() {
+cvs.addEventListener('swiped-down', function() {
     d = "DOWN";
 });
 
