@@ -181,11 +181,11 @@ document.addEventListener('swiped-left', function() {
 });
 
 document.addEventListener('swiped-right', function() {
-    d = "UP";
+    d = "RIGHT";
 });
 
 document.addEventListener('swiped-up', function() {
-    d = "RIGHT";
+    d = "UP";
 });
 
 document.addEventListener('swiped-down', function() {
