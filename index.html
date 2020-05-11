@@ -1,24 +1,140 @@
 <html>
     <head>
         <title>Snake Game</title>
-        <style>
-            canvas{
-                display: block;
-                margin: 0 auto;
-            }
-        </style>
+        <script src="https://use.fontawesome.com/a91c67f491.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet">
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
     </head>
-    <canvas id="snake" width="700" height="700"></canvas>
-    <script src="swiped-events.js"></script>
-    <script src="snake.js"></script>
+    
+    
+    
 
     <body>
-        <div>
-            Score
-        </div>
-       <div id="score">
            
-       </div> 
+       
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>NAKE</h1>
+            </div>
+        
+    
+            <div class="center-top">
+                <img src="img/food.png" alt="">
+                
+                <h2 id="score">0</h2>
+                
+                <img src="img/trophy.png" alt="">
+                
+                <h2 id="hscore">0</h2>
+            </div>
+            <div class="game">
+                <canvas id="snake" ></canvas>
+                <script src="swiped-events.js"></script>
+                <script src="snake.js"></script>
+            </div>    
+                 
 
+            <div id="menu" class="active" >
+                <div class="menucontainer">
+                <div class="scorecontainer">
+                    <img src="img/food.png" alt="">
+                
+                <h2 id="score1">0</h2>
+                
+                <img src="img/trophy.png" alt="">
+                
+                <h2 id="hscore1">0</h2>
+                </div>
+
+                <ul>
+                    <div text="play" class="play-container" id="play">
+                    <li><a   >Play Now</a></li>
+                    </div>
+                    
+                    <li><div text="Level" id="options-container " class="options-container options-container-hover">
+                        <h1 class="context">Difficulty</h1>
+                            
+                            <div class="op-list ">
+                                <h1>Amatuer</h1>
+                            </div>
+                            <div class="op-list active">
+                                <h1>Professional</h1>
+                            </div>
+                            <div class="op-list">
+                                <h1>World Class</h1>
+                            </div>
+                            <div class="op-list">
+                                <h1>Legendary</h1>
+                            </div>
+                            <div class="op-list">
+                                <h1>Ultimate</h1>
+                            </div>
+                        
+                        <i id="prevbtn" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                        <i id="nextbtn" class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                    </div></li>
+
+                    <li><div text="Color" id="options-container1" class="options-container1">
+                        <h1 class="context">Bg Color</h1>
+                        
+                        <div class="op-list1">
+                            <h1>Blue</h1>
+                        </div>
+                        <div class="op-list1">
+                            <h1>Green</h1>
+                        </div>
+                        <div class="op-list1 active">
+                            <h1>Purple</h1>
+                        </div>
+                        <div class="op-list1">
+                            <h1>Brown</h1>
+                        </div>
+                        <div class="op-list1">
+                            <h1>Orange</h1>
+                        </div>
+                        
+                        
+                        <i id="prevbtn1" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                        <i id="nextbtn1" class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                    </div>
+                    </li>
+                    
+                    
+
+                    <li><div text="Speed" id="options-container2" class="options-container2">
+                        <h1 class="context">Speed</h1>
+                        <div class="op-list2 ">
+                            <h1>Slow</h1>
+                        </div>
+                        <div class="op-list2 active">
+                            <h1>Medium</h1>
+                        </div>
+                        <div class="op-list2">
+                            <h1>Fast</h1>
+                        </div>
+                        
+                        
+                        
+                        <i id="prevbtn2" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                        <i id="nextbtn2" class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                    </div>
+                    </li>    
+                     
+                    
+                </ul>
+                    
+            </div>    
+            </div>
+
+            <script src="main.js"></script>
+           
     </body>
+   
+
+    
+    
 </html>

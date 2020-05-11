@@ -1,11 +1,82 @@
-const cvs = document.getElementById("snake");
-const ctx = cvs.getContext("2d");
+
+
+//other than game codes
+
+let p=1;
+
+let speed = 75;
+let choice=1;
+
+
+
+let hscore=0;
+
+function reload(){
+
+
+//get DPI
+let dpi = window.devicePixelRatio;
+//get canvas
+let cvs = document.getElementById('snake');
+//get context
+let ctx = cvs.getContext('2d');
+
+
+
+
+function fix_dpi() {
+
+let style_height = +getComputedStyle(cvs).getPropertyValue("height").slice(0, -2);
+//get CSS width
+let style_width = +getComputedStyle(cvs).getPropertyValue("width").slice(0, -2);
+//scale the canvas
+cvs.setAttribute('height', style_height * dpi);
+cvs.setAttribute('width', style_width * dpi);
+}
 
 
 // create the unit
-const box = cvs.height/20;
+let box=40;
+
+if(window.matchMedia("(min-width:1080px)").matches){
+    box=45;
+}
+
+if(window.matchMedia("(max-width:1080px)").matches){
+    box=39;
+}
+if(window.matchMedia("(max-width:900px)").matches){
+    box=38;
+}
+if(window.matchMedia("(max-width:750px)").matches){
+    box=36.5;
+}
+if(window.matchMedia("(max-width:600px)").matches){
+    box=35;
+}
+if(window.matchMedia("(max-width:500px)").matches){
+    box=33.5;
+}
+if(window.matchMedia("(max-width:400px)").matches){
+    box=32;
+}
+if(window.matchMedia("(max-width:350px)").matches){
+    box=31.5;
+}
+if(window.matchMedia("(max-width:300px)").matches){
+    box=30;
+}
+if(window.matchMedia("(max-width:250px)").matches){
+    box=29;
+}
+
+
+
+let height =  Math.floor(cvs.height/box);
+let width = Math.floor(cvs.width/box);
 
 // load images
+
 
 
 
@@ -22,20 +93,6 @@ bomb.width = box;
 
 // load audio files
 
-let dead = new Audio();
-let eat = new Audio();
-let up = new Audio();
-let right = new Audio();
-let left = new Audio();
-let down = new Audio();
-
-dead.src = "audio/dead.mp3";
-eat.src = "audio/eat.mp3";
-up.src = "audio/up.mp3";
-right.src = "audio/right.mp3";
-left.src = "audio/left.mp3";
-down.src = "audio/down.mp3";
-
 // create the snake
 
 let snake = [];
@@ -45,17 +102,19 @@ snake[0] = {
     y : 10 * box
 };
 
+
 let maze = [];
 
 function createmaze(){
     let count=0;
 
-    let choice =Math.floor( Math.random()*3 +1);
     
     
     switch(choice){
+        case 0 :
+                break;
         case 1 :
-                for(let i=5; i<15;i++){
+                for(let i=5; i<(height-4);i++){
                     maze[count] = {
                         x: 5 * box,
                         y: i * box ,
@@ -63,34 +122,144 @@ function createmaze(){
                     count++;
                 }
 
-                for(let i=5; i<15;i++){
+                for(let i=5; i<(height-4);i++){
                     maze[count] = {
-                        x: 14 * box,
+                        x: (width-5) * box,
                         y: i * box ,
                     }
                     count++;
                 }
                 break;
         case 2 :
-                maze[0] = {
-                    x: 4*box,
-                    y: 5*box,
+            for(let i=5; i<(width-4);i++){
+                maze[count] = {
+                    x: i * box ,
+                    y: 5 * box,
+                    
                 }
-                maze[1] = {
-                    x: 4*box,
-                    y: 15*box,
+                count++;
+            }
+
+            for(let i=5; i<(width-4);i++){
+                maze[count] = {
+                    x: i * box ,
+                    y: (height-4) * box,
+                    
                 }
-                maze[2] = {
-                    x: 15*box,
-                    y: 15*box,
-                }
-                maze[3] = {
-                    x: 15*box,
-                    y: 5*box,
-                }
+                count++;
+            }
                 break;
         case 3 :
+            coun=0
+            for(let i= Math.floor((height/2) -6); coun<11;i++){
+               maze[count] = {
+                x: Math.floor((width/2) -3)*box,
+                y:i*box,
+                
+               }
+               count++;
+               coun++;
+            }
+            coun=0;
+            for(let i= Math.floor((height/2) -6); coun<11;i++){
+                maze[count] = {
+                 x: Math.floor((width/2) +4)*box,
+                 y:i*box,
+                 
+                }
+                count++;
+                coun++;
+             }
+             coun=0;
+             for(let i= Math.floor((width/2) -2); coun<6;i++){
+                maze[count] = {
+                 x:i*box,
+                 y: Math.floor((height/2) -1)*box,
+                }
+                count++;
+                coun++;
+             }
+             if(window.matchMedia("(min-width:500px)").matches){
+                for(let i=5; i<(height-4);i++){
+                    maze[count] = {
+                        x: 5 * box,
+                        y: i * box ,
+                    }
+                    count++;
+                }
+    
+                for(let i=5; i<(height-4);i++){
+                    maze[count] = {
+                        x: (width-5) * box,
+                        y: i * box ,
+                    }
+                    count++;
+                }
+            }
+             break;
+            case 4  :
+            coun=0
+            for(let i= Math.floor((height/2) -6); coun<11;i++){
+               maze[count] = {
+                x: Math.floor((width/2) -6)*box,
+                y:i*box,
+               
+               }
+               count++;
+               coun++;
+            }
+            coun=0;
+            for(let i= Math.floor((height/2) -6); coun<11;i++){
+                maze[count] = {
+                x: Math.floor((width/2) +6)*box,
+                 y:i*box,
+                 
+                }
+                count++;
+                coun++;
+             }
+             coun=0;
+            for(let i= Math.floor((width/2) -6); coun<12;i++){
+                maze[count] = {
+                 x:i*box,
+                 y: Math.floor((height/2) -6)*box,
+                }
+                count++;
+                coun++;
+            }
+            coun=0;
+            for(let i= Math.floor((width/2) -6); coun<10;i++){
+                maze[count] = {
+                 x:i*box,
+                 y: Math.floor((height/2) +4)*box,
+                }
+                count++;
+                coun++;
+            }
+            if(window.matchMedia("(min-width:650px)").matches){
+                for(let i=5; i<(height-4);i++){
+                    maze[count] = {
+                        x: 5 * box,
+                        y: i * box ,
+                    }
+                    count++;
+                }
+    
+                for(let i=5; i<(height-4);i++){
+                    maze[count] = {
+                        x: (width-5) * box,
+                        y: i * box ,
+                    }
+                    count++;
+                }
+            }
+            
+            break;
+            
 
+            
+             
+            
                  
                 
                 
@@ -99,14 +268,15 @@ function createmaze(){
             
 }
 
+//reset global variables
 
 
 // create the food
 let food;
 function createfood(){
     food = {
-        x : Math.floor(Math.random()*18+1) * box,
-        y : Math.floor(Math.random()*18 + 1) * box
+        x : Math.floor(Math.random()*(width -1)+1) * box,
+        y : Math.floor(Math.random()*(height-1) + 1) * box,
     
     }
 
@@ -128,8 +298,8 @@ function createfood(){
 let bombj;
 function bombdraw(){
     bombj = {
-        x : Math.floor(Math.random()*18+1) * box,
-        y : Math.floor(Math.random()*18 + 1) * box
+        x : Math.floor(Math.random()*(width -1)+1) * box,
+        y : Math.floor(Math.random()*(height-1) + 1) * box
     }
     for(let i = 0; i < snake.length; i++){
         if(bombj.x == snake[i].x && bombj.y == snake[i].y){
@@ -153,26 +323,34 @@ function bombdraw(){
 
 let score = 0;
 
+
+
+
 //control the snake
 
 let d;
-
+let changedir=false;
 document.addEventListener("keydown",direction);
 
 function direction(event){
     let key = event.keyCode;
+    if(changedir){
+        return;
+    }
+
+    changedir= true;
     if( (key == 37 || key == 65 ) && d != "RIGHT"){
-        left.play();
+        
         d = "LEFT";
     }else if((key == 38 || key == 87 )  && d != "DOWN"){
         d = "UP";
-        up.play();
+
     }else if((key == 39 || key == 68 )  && d != "LEFT"){
         d = "RIGHT";
-        right.play();
+        r
     }else if((key == 40 || key == 83 )  && d != "UP"){
         d = "DOWN";
-        down.play();
+        
     }
 }
 
@@ -217,20 +395,28 @@ function collision(head,array){
 
 // draw everything to the canvas
 
+
+
+
 createmaze();
+
 createfood();
 bombdraw();
 
-let k = Math.floor(Math.random()*5+1);
-
-    
-
 function draw(){
-
-    switch(k){
+    fix_dpi();
+    height =Math.floor(cvs.height/box);
+    width = Math.floor(cvs.width/box);
+    
+    createmaze();
+    
+    
+    switch(p){
+        
         case 1:
-            for(let j=1 ; j < 19 ;j++){
-                for(let k=1; k<19;k++){
+            
+            for(let j=0 ; j < width ;j++){
+                for(let k=0; k< height;k++){
                 ctx.fillStyle = (((k+j)%2) == 0)? "#94fdff" : "#63a9ff";
                 ctx.fillRect( j*box, k*box  , box ,box );
                 ctx.strokeStyle = "#ffffff";
@@ -239,8 +425,8 @@ function draw(){
             }
             break;
         case 2:
-            for(let j=1 ; j < 19 ;j++){
-                for(let k=1; k<19;k++){
+            for(let j=0 ; j < width ;j++){
+                for(let k=0; k< height;k++){
                 ctx.fillStyle = (((k+j)%2) == 0)? "#a7ed93" : "#22e022";
                 ctx.fillRect( j*box, k*box  , box ,box );
                 ctx.strokeStyle = "#ffffff";
@@ -249,8 +435,8 @@ function draw(){
             }
             break;
         case 3:
-            for(let j=1 ; j < 19 ;j++){
-                for(let k=1; k<19;k++){
+            for(let j=0 ; j < width ;j++){
+                for(let k=0; k< height;k++){
                 ctx.fillStyle = (((k+j)%2) == 0)? "#e573f0" : "#edabe5";
                 ctx.fillRect( j*box, k*box  , box ,box );
                 ctx.strokeStyle = "#ffffff";
@@ -259,8 +445,8 @@ function draw(){
             }
             break;
         case 4:
-            for(let j=1 ; j < 19 ;j++){
-                for(let k=1; k<19;k++){
+            for(let j=0 ; j < width ;j++){
+                for(let k=0; k< height;k++){
                 ctx.fillStyle = (((k+j)%2) == 0)? "#9c7a40" : "#e3d3a3";
                 ctx.fillRect( j*box, k*box  , box ,box );
                 ctx.strokeStyle = "#ffffff";
@@ -269,8 +455,8 @@ function draw(){
             }
             break;
         case 5:
-            for(let j=1 ; j < 19 ;j++){
-                for(let k=1; k<19;k++){
+            for(let j=0 ; j < width ;j++){
+                for(let k=0; k< height;k++){
                 ctx.fillStyle = (((k+j)%2) == 0)? "#f07f1d" : "#f5b453";
                 ctx.fillRect( j*box, k*box  , box ,box );
                 ctx.strokeStyle = "#ffffff";
@@ -281,17 +467,11 @@ function draw(){
 
 
     }
+
     
     
-    for(let j=0 ; j < 20 ;j++){
-        
-        ctx.fillStyle = "#000000";
-        ctx.fillRect( j*box, 0  , box ,box );
-        ctx.fillRect( 0, j*box  , box ,box );
-        ctx.fillRect( 19*box, j*box  , box ,box );
-        ctx.fillRect( j*box, 19*box  , box ,box );
-        
-    }
+    
+    
     
     for(let p=0;p<maze.length;p++){
         ctx.fillStyle = "#000000";
@@ -308,6 +488,7 @@ function draw(){
         
         ctx.strokeStyle = "red";
         ctx.strokeRect(snake[i].x,snake[i].y,box,box);
+
     }
     
     ctx.drawImage(foodImg, food.x, food.y, box ,box);
@@ -325,12 +506,18 @@ function draw(){
     
     // if the snake eats the food
     if(snakeX == food.x && snakeY == food.y){
-        score++;
-        eat.play();
+        score+=1;
+        
         createfood();
+        if(score>hscore){
+            hscore=score;
+            document.getElementById("hscore").innerHTML= hscore;
+            document.getElementById("hscore1").innerHTML= hscore;
 
+        }
         document.getElementById("score").innerHTML= score;
-            
+        document.getElementById("score1").innerHTML= score;
+        
         
         // we don't remove the tail
     }else{
@@ -338,29 +525,310 @@ function draw(){
         snake.pop();
     }
     
+    
     // add new Head
     
     let newHead = {
         x : snakeX,
-        y : snakeY
+        y : snakeY,
+    }
+   
+    //AUTONOMUS
+
+    function check(ny){
+       let ip=0;
+        for(ip=0 ;ip < maze.length ; ip++){
+            if(ny.x == maze[ip].x && ny.y == maze[ip].y){
+                return true;
+            }
+        }
+        return false;
+
+    }
+    
+    
+    function goto(){
+        
+            if(snakeX - food.x == 0){
+
+                pj=food.y;
+
+                if(snakeY- food.y > 0){
+                    while(snakeY>=pj){
+                        let ny = {
+                            x : snakeX,
+                            y : pj,
+                        }
+                        
+                        if(check(ny)){
+                            
+                            
+                            return;
+                        }
+                        pj += box;
+                    }
+                }
+                
+                else if(snakeY - food.y < 0){
+                    pj =food.y;
+                    while(snakeY<=pj){
+                        let ny = {
+                            x : snakeX,
+                            y : pj,
+                        }
+                        if(check(ny)){
+                            
+                            
+                            return;
+                        }
+                        pj -= box;
+                    }
+                }
+
+                if(snakeY-food.y > 0){
+                    d="UP";
+                }else{
+                    d="DOWN";
+                }
+                
+
+                
+            }
+            let pd;
+            if(snakeY - food.y == 0){
+
+                pd=food.x;
+
+                if(snakeX- food.x > 0){
+                    while(snakeX>=pd){
+                        let np = {
+                            x : pd,
+                            y : snakeY,
+                        }
+                        
+                        if(check(np)){
+                            
+                            
+                            return;
+                        }
+                        pd += box;
+                    }
+                }
+                
+                else if(snakeX - food.x < 0){
+                    pd =food.x;
+                    while(snakeX<=pd){
+                        let np = {
+                            x : pd,
+                            y : snakeY,
+                        }
+                        if(check(np)){
+                            
+                        
+                            return;
+                        }
+                        pd -= box;
+                    }
+                }
+                if(snakeX-food.x > 0){
+                    d="LEFT";
+                }else{
+                    d="RIGHT";
+                }
+                
+
+                
+            }
+            
+      
+
+        
+    }
+    console.log(box);
+
+    function auto(){
+        let newHead1,newHead11,newHead12;
+        if(d =="RIGHT"){
+            newHead1 = {
+                x : snakeX + box,
+                y : snakeY,
+            }
+            newHead11 ={
+                x : snakeX,
+                y : snakeY - box,
+            }
+            newHead12 ={
+                x : snakeX,
+                y : snakeY + box,
+            }
+
+            if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
+                if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
+                    d="DOWN";
+                                 
+                }
+                else if(newHead12.x < 0 || newHead12.x > (width-1) * box || newHead12.y < 0 || newHead12.y > (height-1)*box || collision(newHead12,snake)){
+                    d="UP";
+                                    }
+                else{
+                    let p = Math.floor(Math.random()*2+1)
+
+                    if(p==1){
+                        d="DOWN";
+                    }
+                    if(p==2){
+                        d="UP";
+                    }
+                    
+                    
+                }
+
+
+            }
+            return;
+        }
+        if(d =="UP"){
+            newHead1 = {
+                x : snakeX,
+                y : snakeY -box,
+            }
+            newHead11 ={
+                x : snakeX + box,
+                y : snakeY  ,
+            }
+            newHead12 ={
+                x : snakeX -box,
+                y : snakeY ,
+            }
+
+            if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
+                if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
+                    d="LEFT";
+                                    }
+                else if(newHead12.x < 0 || newHead12.x > (width-1) * box || newHead12.y < 0 || newHead12.y > (height-1)*box || collision(newHead12,snake)){
+                    d="RIGHT";
+                                    }
+                else{
+                    let p = Math.floor(Math.random()*2+1)
+
+                    if(p==1){
+                        d="LEFT";
+                    }
+                    if(p==2){
+                        d="RIGHT";
+                    }
+                    
+                }
+
+
+            }
+            return;
+        }
+        if(d =="LEFT"){
+            newHead1 = {
+                x : snakeX - box,
+                y : snakeY,
+            }
+            newHead11 ={
+                x : snakeX,
+                y : snakeY - box,
+            }
+            newHead12 ={
+                x : snakeX,
+                y : snakeY + box,
+            }
+
+            if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
+                if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
+                    d="DOWN";
+                                    }
+                else if(newHead12.x < 0 || newHead12.x > (width-1) * box || newHead12.y < 0 || newHead12.y > (height-1)*box || collision(newHead12,snake)){
+                    d="UP";
+                                    }
+                else{
+                    let p = Math.floor(Math.random()*2+1)
+
+                    if(p==1){
+                        d="DOWN";
+                    }
+                    if(p==2){
+                        d="UP";
+                    }
+                    
+                }
+
+
+            }
+            return;
+        }
+        if(d =="DOWN"){
+            newHead1 = {
+                x : snakeX,
+                y : snakeY + box,
+            }
+            newHead11 ={
+                x : snakeX + box,
+                y : snakeY  ,
+            }
+            newHead12 ={
+                x : snakeX -box,
+                y : snakeY ,
+            }
+
+            if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
+                if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
+                    d="LEFT";
+                                    }
+                else if(newHead12.x < 0 || newHead12.x > (width-1) * box || newHead12.y < 0 || newHead12.y > (height-1)*box || collision(newHead12,snake)){
+                    d="RIGHT";
+                                    }
+                else{
+                    let p = Math.floor(Math.random()*2+1)
+
+                    if(p==1){
+                        d="LEFT";
+                    }
+                    if(p==2){
+                        d="RIGHT";
+                    }
+                    
+                }
+
+
+            }
+            return;
+        }
+        
+
     }
     
     // game over
     
-    if(snakeX < 1 || snakeX > 18 * box || snakeY < 1 || snakeY > 18*box || collision(newHead,snake)){
+    if(snakeX < 0 || snakeX > (width-1) * box || snakeY < 0 || snakeY > (height-1)*box || collision(newHead,snake)){
         clearInterval(game);
-        dead.play();
-        location.reload();
+        clearInterval(thing);
+        
+        
+        document.getElementById("score").innerHTML= 0;
+        
+        setTimeout(() => {
+            document.getElementById("menu").classList.add("active");
+            
+        }, 500); 
+        
+        
+        
     }
     
     snake.unshift(newHead);
+
+    changedir=false;
     
-    ctx.fillStyle = "white";
-    ctx.font = "45px Changa one";
-    ctx.fillText(score,2*box,1.6*box);
+    
 }
 
 // call draw function every 100 ms
 
-let game = setInterval(draw,100);
+let game = setInterval(draw,speed);
 let thing  =setInterval(bombdraw,4000);
+}
