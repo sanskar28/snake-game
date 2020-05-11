@@ -275,7 +275,20 @@ canvas{
         
     }
 }
-.play-container{
+
+.auto-container{
+    &:hover{
+        background-color: white !important;
+    }
+
+    &::before{
+
+        background-image: linear-gradient(to bottom right , rgba(6, 61, 240, 0.603) , rgba(0, 189, 214, 0.61)),url(img/background1.jpg) !important;
+    }
+}
+
+
+.play-container , .auto-container{
 
     @media (max-width:650px){
         width: 100%;
@@ -283,6 +296,7 @@ canvas{
 
     width: 650px;
     margin: 0 auto;
+    margin-top: 2rem;
     
     &:hover li a{
         color: black !important;

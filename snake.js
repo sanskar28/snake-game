@@ -3,12 +3,15 @@
 //other than game codes
 
 let p=1;
+let au =0;
+let prevspeed;
 
-let speed = 75;
+let speed = 65;
+
 let choice=1;
 
 
-
+let d;
 let hscore=0;
 
 function reload(){
@@ -330,8 +333,12 @@ let score = 0;
 
 
 //control the snake
+if(au==0){
+    d="none";
+}
 
-let d;
+
+
 let changedir=false;
 document.addEventListener("keydown",direction);
 
@@ -350,7 +357,7 @@ function direction(event){
 
     }else if((key == 39 || key == 68 )  && d != "LEFT"){
         d = "RIGHT";
-        r
+        
     }else if((key == 40 || key == 83 )  && d != "UP"){
         d = "DOWN";
         
@@ -416,12 +423,18 @@ createmaze();
 createfood();
 bombdraw();
 
+
+
+
+
 function draw(){
     fix_dpi();
     height =Math.floor(cvs.height/box);
     width = Math.floor(cvs.width/box);
     
     createmaze();
+
+    
     
     
     switch(p){
@@ -481,8 +494,7 @@ function draw(){
 
     }
 
-    
-    
+
     
     
     
@@ -558,6 +570,12 @@ function draw(){
         return false;
 
     }
+
+if(au == 1){
+    
+    goto();
+    auto();
+}
     
     
     function goto(){
@@ -823,6 +841,12 @@ function draw(){
         
         
         document.getElementById("score").innerHTML= 0;
+
+        if(au==1){
+            au=0;
+            speed=prevspeed;
+        }
+        
         
         setTimeout(() => {
             document.getElementById("menu").classList.add("active");
@@ -841,7 +865,7 @@ function draw(){
 }
 
 // call draw function every 100 ms
-
+console.log(speed);
 let game = setInterval(draw,speed);
 let thing  =setInterval(bombdraw,4000);
 }

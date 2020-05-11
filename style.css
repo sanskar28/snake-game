@@ -231,22 +231,32 @@ canvas {
   cursor: pointer;
 }
 
-.play-container {
+.auto-container:hover {
+  background-color: white !important;
+}
+
+.auto-container::before {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(6, 61, 240, 0.603)), to(rgba(0, 189, 214, 0.61))), url(img/background1.jpg) !important;
+  background-image: linear-gradient(to bottom right, rgba(6, 61, 240, 0.603), rgba(0, 189, 214, 0.61)), url(img/background1.jpg) !important;
+}
+
+.play-container, .auto-container {
   width: 650px;
   margin: 0 auto;
+  margin-top: 2rem;
 }
 
 @media (max-width: 650px) {
-  .play-container {
+  .play-container, .auto-container {
     width: 100%;
   }
 }
 
-.play-container:hover li a {
+.play-container:hover li a, .auto-container:hover li a {
   color: black !important;
 }
 
-.play-container::before {
+.play-container::before, .auto-container::before {
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 0, 76, 0.61)), to(rgba(202, 30, 193, 0.61))), url(img/background1.jpg);
   background-image: linear-gradient(to bottom right, rgba(255, 0, 76, 0.61), rgba(202, 30, 193, 0.61)), url(img/background1.jpg);
   background-repeat: no-repeat;
@@ -279,66 +289,66 @@ canvas {
 }
 
 @media (max-width: 1400px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 37rem;
   }
 }
 
 @media (max-width: 1250px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 32rem;
   }
 }
 
 @media (max-width: 1000px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 27rem;
   }
 }
 
 @media (max-width: 900px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 24rem;
   }
 }
 
 @media (max-width: 700px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 22rem;
   }
 }
 
 @media (max-width: 600px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 20rem;
   }
 }
 
 @media (max-width: 500px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 19rem;
   }
 }
 
 @media (max-width: 400px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 18rem;
   }
 }
 
 @media (max-width: 330px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 21rem;
   }
 }
 
 @media (max-width: 270px) {
-  .play-container::before {
+  .play-container::before, .auto-container::before {
     font-size: 17rem;
   }
 }
 
-.play-container:hover::before {
+.play-container:hover::before, .auto-container:hover::before {
   content: attr(text);
   opacity: 1;
   left: 50%;

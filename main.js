@@ -5,11 +5,13 @@ document.getElementById("play").onclick = function(){
     setTimeout(() => {
         document.getElementById("menu").classList.remove("active");
     }, 500);
+    au=0;
                 
     
     
     }
 
+    
     
 
 
@@ -136,16 +138,31 @@ prevbtn2.onclick = function(){
     oplist2[count2].classList.add("active");
 
     if(count2==0){
-        speed = 100;
+        speed = 90;
     }
     if(count2==1){
-        speed = 75;
+        speed = 65;
     }
     if(count2==2){
-        speed = 55;
+        speed = 45;
     }
 }
 
+document.getElementById("auto").onclick = function(){
+    prevspeed=speed;
+    speed=0.001;
+    au =1;
+    d="RIGHT";
+    
+    setTimeout(() => {
+        document.getElementById("menu").classList.remove("active");
+    }, 500);
+    reload();
+                
+    
+    
+    
+    }
 
 
 
