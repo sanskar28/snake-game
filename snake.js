@@ -39,7 +39,7 @@ cvs.setAttribute('width', style_width * dpi);
 let box=40;
 
 if(window.matchMedia("(min-width:1080px)").matches){
-    box=45;
+    box=40;
 }
 
 if(window.matchMedia("(max-width:1080px)").matches){
@@ -49,25 +49,25 @@ if(window.matchMedia("(max-width:900px)").matches){
     box=38;
 }
 if(window.matchMedia("(max-width:750px)").matches){
-    box=36.5;
+    box=37;
 }
 if(window.matchMedia("(max-width:600px)").matches){
-    box=35;
+    box=36;
 }
 if(window.matchMedia("(max-width:500px)").matches){
-    box=33.5;
+    box=35;
 }
 if(window.matchMedia("(max-width:400px)").matches){
-    box=32;
+    box=34;
 }
 if(window.matchMedia("(max-width:350px)").matches){
-    box=31.5;
+    box=33;
 }
 if(window.matchMedia("(max-width:300px)").matches){
-    box=30;
+    box=32;
 }
 if(window.matchMedia("(max-width:250px)").matches){
-    box=29;
+    box=31;
 }
 
 
@@ -356,19 +356,29 @@ function direction(event){
 
 
 cvs.addEventListener('swiped-left', function() {
-    d = "LEFT";
+
+    if(d!="RIGHT"){
+        d = "LEFT";
+    }
+    
 });
 
 cvs.addEventListener('swiped-right', function() {
-    d = "RIGHT";
+    if(d!="LEFT"){
+        d = "RIGHT";
+    }
 });
 
 cvs.addEventListener('swiped-up', function() {
-    d = "UP";
+    if(d!="DOWN"){
+        d = "UP";
+    }
 });
 
 cvs.addEventListener('swiped-down', function() {
-    d = "DOWN";
+    if(d!="UP"){
+        d = "DOWN";
+    }
 });
 
 
