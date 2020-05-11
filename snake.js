@@ -22,7 +22,7 @@ let cvs = document.getElementById('snake');
 let ctx = cvs.getContext('2d');
 
 
-
+console.log(dpi);
 
 function fix_dpi() {
 
@@ -36,39 +36,42 @@ cvs.setAttribute('width', style_width * dpi);
 
 
 // create the unit
-let box=40;
-
+let box=30* dpi;
+if(window.matchMedia("(min-width:1200px)").matches){
+    box=31.5* dpi;
+}
 if(window.matchMedia("(min-width:1080px)").matches){
-    box=40;
+    box=30* dpi;
 }
 
 if(window.matchMedia("(max-width:1080px)").matches){
-    box=39;
+    box=27* dpi;
 }
 if(window.matchMedia("(max-width:900px)").matches){
-    box=38;
+    box=25* dpi;
 }
-/*if(window.matchMedia("(max-width:750px)").matches){
-    box=37;
+if(window.matchMedia("(max-width:750px)").matches){
+    box=23.5* dpi;
 }
 if(window.matchMedia("(max-width:600px)").matches){
-    box=36;
+    box=22* dpi;
 }
 if(window.matchMedia("(max-width:500px)").matches){
-    box=35;
+    box=20* dpi;
 }
 if(window.matchMedia("(max-width:400px)").matches){
-    box=34;
+    box=17* dpi;
 }
 if(window.matchMedia("(max-width:350px)").matches){
-    box=33;
+    box=14* dpi;
 }
 if(window.matchMedia("(max-width:300px)").matches){
-    box=32;
+    box=13* dpi;
 }
 if(window.matchMedia("(max-width:250px)").matches){
-    box=31;
-}*/
+    box=12.5* dpi;
+}
+console.log(box);
 
 
 
@@ -654,7 +657,7 @@ function draw(){
 
         
     }
-    console.log(box);
+    
 
     function auto(){
         let newHead1,newHead11,newHead12;
