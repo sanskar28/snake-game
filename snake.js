@@ -48,7 +48,7 @@ if(window.matchMedia("(max-width:1080px)").matches){
 if(window.matchMedia("(max-width:900px)").matches){
     box=38;
 }
-if(window.matchMedia("(max-width:750px)").matches){
+/*if(window.matchMedia("(max-width:750px)").matches){
     box=37;
 }
 if(window.matchMedia("(max-width:600px)").matches){
@@ -68,7 +68,7 @@ if(window.matchMedia("(max-width:300px)").matches){
 }
 if(window.matchMedia("(max-width:250px)").matches){
     box=31;
-}
+}*/
 
 
 
