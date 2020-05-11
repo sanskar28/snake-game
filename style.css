@@ -268,7 +268,7 @@ canvas {
       -ms-flex-align: center;
           align-items: center;
   z-index: -1;
-  font-size: 45rem !important;
+  font-size: 45rem;
   opacity: 0;
   font-weight: 900;
   text-transform: uppercase;
@@ -276,6 +276,66 @@ canvas {
   color: rgba(0, 0, 0, 0.2);
   -webkit-transition: letter-spacing 0.5s, left 0.5s;
   transition: letter-spacing 0.5s, left 0.5s;
+}
+
+@media (max-width: 1400px) {
+  .play-container::before {
+    font-size: 37rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  .play-container::before {
+    font-size: 32rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .play-container::before {
+    font-size: 27rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .play-container::before {
+    font-size: 24rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .play-container::before {
+    font-size: 22rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .play-container::before {
+    font-size: 20rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .play-container::before {
+    font-size: 19rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .play-container::before {
+    font-size: 18rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .play-container::before {
+    font-size: 21rem;
+  }
+}
+
+@media (max-width: 270px) {
+  .play-container::before {
+    font-size: 17rem;
+  }
 }
 
 .play-container:hover::before {
@@ -336,7 +396,7 @@ canvas {
       -ms-flex-align: center;
           align-items: center;
   z-index: -1;
-  font-size: 40rem !important;
+  font-size: 40rem;
   opacity: 0;
   font-weight: 900;
   text-transform: uppercase;
@@ -344,6 +404,66 @@ canvas {
   color: rgba(0, 0, 0, 0.2);
   -webkit-transition: letter-spacing 0.5s, left 0.5s;
   transition: letter-spacing 0.5s, left 0.5s;
+}
+
+@media (max-width: 1400px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 35rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 30rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 25rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 23rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 20rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 18rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 17rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 16rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 19rem;
+  }
+}
+
+@media (max-width: 270px) {
+  .options-container::before, .options-container1::before, .options-container2::before {
+    font-size: 15rem;
+  }
 }
 
 .options-container:hover::before, .options-container:active::before, .options-container1:hover::before, .options-container1:active::before, .options-container2:hover::before, .options-container2:active::before {
@@ -362,10 +482,6 @@ canvas {
   font-size: 2rem;
   cursor: pointer;
   color: #ffffff;
-}
-
-.options-container1::before, .options-container2::before {
-  font-size: 40rem !important;
 }
 
 .options-container::before {

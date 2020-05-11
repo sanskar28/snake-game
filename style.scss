@@ -303,7 +303,48 @@ canvas{
         justify-content: center;
         align-items: center;
         z-index: -1;
-        font-size: 45rem !important;
+        font-size: 45rem ;
+
+        @media(max-width:1400px){
+            font-size: 37rem;
+            
+        }
+        @media(max-width:1250px){
+            font-size: 32rem;
+            
+        }
+        @media(max-width:1000px){
+            font-size: 27rem;
+            
+        }
+
+        @include respond(largetab){
+            font-size: 24rem;
+        }
+        @include respond(smalltab){
+            font-size: 22rem;
+        }
+    
+        @media(max-width:600px){
+            font-size: 20rem;
+            
+        }
+        @media(max-width:500px){
+            font-size: 19rem;
+            
+        }
+        @media(max-width:400px){
+            font-size: 18rem;
+            
+        }
+        @media(max-width:330px){
+            font-size: 21rem;
+            
+        }
+        @media(max-width:270px){
+            font-size: 17rem;
+            
+        }
         opacity: 0;
         font-weight: 900;
         text-transform: uppercase;
@@ -358,7 +399,52 @@ canvas{
         justify-content: center;
         align-items: center;
         z-index: -1;
-        font-size: 40rem !important;
+        font-size: 40rem ;
+        @media(max-width:1400px){
+            font-size: 35rem;
+            
+        }
+        @media(max-width:1250px){
+            font-size: 30rem;
+            
+        }
+        @media(max-width:1000px){
+            font-size: 25rem;
+            
+        }
+
+        @include respond(largetab){
+            font-size: 23rem;
+        }
+        @include respond(smalltab){
+            font-size: 20rem;
+        }
+    
+        @media(max-width:600px){
+            font-size: 18rem;
+            
+        }
+        @media(max-width:500px){
+            font-size: 17rem;
+            
+        }
+        @media(max-width:400px){
+            font-size: 16rem;
+            
+        }
+        @media(max-width:330px){
+            font-size: 19rem;
+            
+        }
+        @media(max-width:270px){
+            font-size: 15rem;
+            
+        }
+        
+
+
+
+
         opacity: 0;
         font-weight: 900;
         text-transform: uppercase;
@@ -388,12 +474,7 @@ canvas{
         
     }
 }
-.options-container1, .options-container2{
 
-    &::before{
-        font-size: 40rem !important;
-    }
-}
 
 .options-container{
     &::before{
