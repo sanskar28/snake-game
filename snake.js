@@ -955,11 +955,11 @@ if(au == 1){
             speed=prevspeed;
         }
         
-        /*
+        
         setTimeout(() => {
             document.getElementById("menu").classList.add("active");
             
-        }, 500); */
+        }, 500); 
         
         
         
