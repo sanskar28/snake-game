@@ -81,12 +81,15 @@ body {
   padding: 0;
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.479)), to(rgba(0, 255, 255, 0.466))), url(img/background.jpg);
   background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.479), rgba(0, 255, 255, 0.466)), url(img/background.jpg);
+  overflow: hidden;
 }
 
 canvas {
   padding: 0;
-  height: 100%;
+  overflow: hidden;
+  height: 95%;
   width: 90vw;
+  overscroll-behavior: none;
 }
 
 .logo {
