@@ -1,16 +1,9 @@
-/*!
- * swiped-events.js - v@version@
- * Pure JavaScript swipe events
- * https://github.com/john-doherty/swiped-events
- * @inspiration https://stackoverflow.com/questions/16348031/disable-scrolling-when-touch-moving-certain-element
- * @author John Doherty <www.johndoherty.info>
- * @license MIT
- */
+
 (function (window, document) {
 
     'use strict';
 
-    // patch CustomEvent to allow constructor creation (IE/Chrome)
+
     if (typeof window.CustomEvent !== 'function') {
 
         window.CustomEvent = function (event, params) {
@@ -45,6 +38,7 @@
         var swipeTimeout = parseInt(startEl.getAttribute('data-swipe-timeout') || '500', 10);      // default 1000ms
         var timeDiff = Date.now() - timeDown;
         var eventType = '';
+        e.preventDefault();
 
         if (Math.abs(xDiff) > Math.abs(yDiff)) { // most significant
             if (Math.abs(xDiff) > swipeThreshold && timeDiff < swipeTimeout) {
@@ -93,6 +87,7 @@
         yDown = e.touches[0].clientY;
         xDiff = 0;
         yDiff = 0;
+        e.preventDefault();
     }
 
     function handleTouchMove(e) {
@@ -104,6 +99,7 @@
 
         xDiff = xDown - xUp;
         yDiff = yDown - yUp;
+        e.preventDefault();
     }
 
 }(window, document));
