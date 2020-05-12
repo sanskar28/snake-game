@@ -2,8 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
-    
 }
 
 //variables
@@ -121,15 +119,8 @@ canvas{
     width: 90vw;
 
     overscroll-behavior: none;
-    overscroll-behavior-x: none;
     
    
-    
-}
-
-body , canvas {
-    overflow-y: hidden;
-    overflow-x: hidden;
     
 }
 

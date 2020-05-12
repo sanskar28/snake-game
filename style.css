@@ -90,12 +90,6 @@ canvas {
   height: 95%;
   width: 90vw;
   overscroll-behavior: none;
-  overscroll-behavior-x: none;
-}
-
-body, canvas {
-  overflow-y: hidden;
-  overflow-x: hidden;
 }
 
 .logo {
