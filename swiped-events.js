@@ -97,7 +97,7 @@
 
         xDiff = xDown - xUp;
         yDiff = yDown - yUp;
-        e.preventDefault();
+       
     }
 
 }(window, document));
