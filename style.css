@@ -82,6 +82,7 @@ body {
   padding: 0;
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.719)), to(rgba(0, 255, 255, 0.712))), url(img/background1.jpg);
   background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.719), rgba(0, 255, 255, 0.712)), url(img/background1.jpg);
+  background-size: cover;
   overflow: hidden;
 }
 
