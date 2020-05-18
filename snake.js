@@ -2,7 +2,7 @@
 
 //other than game codes
 
-let p=1;
+let p=3;
 let au =0;
 let prevspeed;
 
