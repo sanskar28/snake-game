@@ -66,13 +66,13 @@ if(window.matchMedia("(max-width:400px)").matches){
     box=17* dpi;
 }
 if(window.matchMedia("(max-width:350px)").matches){
-    box=14* dpi;
+    box=15.5* dpi;
 }
 if(window.matchMedia("(max-width:300px)").matches){
-    box=13* dpi;
+    box=15* dpi;
 }
 if(window.matchMedia("(max-width:250px)").matches){
-    box=12.5* dpi;
+    box=14* dpi;
 }
 console.log(box);
 

@@ -150,7 +150,12 @@ prevbtn2.onclick = function(){
 
 document.getElementById("auto").onclick = function(){
     prevspeed=speed;
+
+    
     speed=0.001;
+    if(window.matchMedia("(max-width:600px)").matches){
+        speed=30;
+    }
     au =1;
     d="RIGHT";
     

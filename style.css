@@ -72,6 +72,7 @@ html {
 .game {
   padding: 0 5%;
   padding-bottom: 0;
+  padding-top: 0rem;
   width: 90%;
   height: 89%;
 }
@@ -79,8 +80,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.479)), to(rgba(0, 255, 255, 0.466))), url(img/background.jpg);
-  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.479), rgba(0, 255, 255, 0.466)), url(img/background.jpg);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.719)), to(rgba(0, 255, 255, 0.712))), url(img/background1.jpg);
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.719), rgba(0, 255, 255, 0.712)), url(img/background1.jpg);
   overflow: hidden;
 }
 
@@ -94,6 +95,30 @@ canvas {
 
 .logo {
   float: left;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    padding-top: 7rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .logo {
+    padding-top: 10rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .logo {
+    padding-top: 15rem;
+  }
 }
 
 .logo img {
@@ -121,6 +146,30 @@ canvas {
 
 .center-top {
   color: whitesmoke;
+}
+
+@media (max-width: 600px) {
+  .center-top {
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .center-top {
+    padding-top: 7rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .center-top {
+    padding-top: 10rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .center-top {
+    padding-top: 15rem;
+  }
 }
 
 .center-top::after {
