@@ -695,7 +695,7 @@ if(au == 1){
 
             if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
 
-                if(collision(newHead1,snake)){
+                
                     let ifk = snakeY;
                     let v=0;
                     for(v=0;v<snake.length;v++){
@@ -719,7 +719,7 @@ if(au == 1){
                         }
                     }
                     
-                }
+                
                 if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
                     d="DOWN";
                                  
@@ -760,17 +760,17 @@ if(au == 1){
 
             if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
 
-                if(collision(newHead1,snake)){
+                
                     let ifk = snakeX;
                     let v=0;
                     for(v=0;v<snake.length;v++){
                         if(snake[v].x!=ifk){
-                            if(snake[v].x<ifk){
+                            if(snake[v].x>ifk){
                                 if(newHead12.x < 0 || newHead12.x > (width-1) * box || newHead12.y < 0 || newHead12.y > (height-1)*box || collision(newHead12,snake)){
                                     break;
                                                   
                                 }
-                                d="RIGHT";
+                                d="LEFT";
                                 return;
 
                             }
@@ -779,14 +779,14 @@ if(au == 1){
                                     break;
                                                  
                                 }
-                                d="LEFT";
+                                d="RIGHT";
                                 return;
                             }
                             
                         }
                     }
                     
-                }
+                
 
                 if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
                     d="LEFT";
@@ -829,30 +829,30 @@ if(au == 1){
             }
 
             if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
-                if(collision(newHead1,snake)){
+                
                     let ifk = snakeY;
                     let v=0;
                     for(v=0;v<snake.length;v++){
                         if(snake[v].y!=ifk){
-                            if(snake[v].y<ifk){
+                            if(snake[v].y>ifk){
                                 if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
                                    break;
                                                     }
-                                d="DOWN";
+                                d="UP";
                                 return;
                             }
                             else{
                                 if(newHead12.x < 0 || newHead12.x > (width-1) * box || newHead12.y < 0 || newHead12.y > (height-1)*box || collision(newHead12,snake)){
                                    break;
                                                     }
-                                d="UP";
+                                d="DOWN";
                                 return;
                             }
                             
                         }
                     }
                     
-                }
+                
                 if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
                     d="DOWN";
                                     }
@@ -890,7 +890,7 @@ if(au == 1){
             }
 
             if(newHead1.x < 0 || newHead1.x > (width-1) * box || newHead1.y < 0 || newHead1.y > (height-1)*box || collision(newHead1,snake)){
-                if(collision(newHead1,snake)){
+                
                     let ifk = snakeX;
                     let v=0;
                     for(v=0;v<snake.length;v++){
@@ -914,7 +914,7 @@ if(au == 1){
                         }
                     }
                     
-                }
+                
                 if(newHead11.x < 0 || newHead11.x > (width-1) * box || newHead11.y < 0 || newHead11.y > (height-1)*box || collision(newHead11,snake)){
                     d="LEFT";
                                     }
